@@ -61,6 +61,8 @@ python app.py
 
 Open <http://127.0.0.1:5000/>. The database and tables are created automatically at `instance/atm_evm.db`. To choose another database file, set `ATM_EVM_DATABASE` to its path.
 
+The legacy `atm_evm.db` from the earlier scripts is not migrated or reused. The app starts with a fresh database using the schema described below; re-enter synthetic demo records through the admin panel or CLI.
+
 For local development only, `flask --app app run --debug` enables Flask's debugger. Never expose debug mode to a network.
 
 ## Administrator usage

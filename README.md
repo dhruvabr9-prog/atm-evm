@@ -4,6 +4,15 @@ ATM-EVM is a small Flask and SQLite educational demonstration of an electronic v
 
 > **Demo only.** This project is not suitable for public elections or production identity verification. It has not undergone security, accessibility, election-integrity, privacy, or legal review. Use synthetic data only. It deliberately does not collect Aadhaar numbers or other government identity numbers.
 
+## Quick start: download and open
+
+1. On GitHub, choose **Code → Download ZIP**, then extract the ZIP.
+2. Open the extracted `atm-evm` folder and double-click `index.html`.
+3. Choose **Admin** to add invented demo voters and candidates, then start the election.
+4. Choose **Voting** to cast a demo vote.
+
+No Python, installation, internet connection, or local web server is required for this standalone version. It stores records in the browser's local storage on that computer. Sharing the repository does not share election data between people or devices. Keep using the same browser profile to see the same local demo data.
+
 ## Features
 
 - Start and end named demo elections.
@@ -16,6 +25,8 @@ ATM-EVM is a small Flask and SQLite educational demonstration of an electronic v
 
 ## Architecture
 
+The easiest version is the self-contained root `index.html`; its HTML, styling, and JavaScript run directly in a browser. The optional Flask version provides server routes and SQLite persistence:
+
 ```text
 Browser ── Flask routes (app.py) ── database.py ── SQLite
                                       ▲
@@ -24,13 +35,11 @@ Browser ── Flask routes (app.py) ── database.py ── SQLite
 
 The Flask application factory is `create_app()` in `app.py`. `database.py` owns connection settings, schema creation, and transaction handling. HTML lives in `templates/`; CSS is in `static/`.
 
-## Requirements
+## Optional Flask server version
 
-- Python 3.10 or later
-- pip
-- A modern browser
+Use this version if you want the Flask and SQLite implementation instead of the click-to-open HTML demo. It requires Python 3.10 or later and pip.
 
-## Setup and run
+### Setup and run
 
 From the project directory:
 
@@ -112,4 +121,3 @@ Votes are associated with an election and candidate; the voter identity is not s
 ## License
 
 No license is included yet. Ask the project owner before reusing or redistributing the code.
-
